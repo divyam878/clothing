@@ -17,70 +17,86 @@ import {
 export const navBarList = [
   {
     _id: 1001,
-    title: "Home",
+    title: "HOME",
     link: "/",
   },
   {
     _id: 1002,
-    title: "Shop",
+    title: "SHOP",
     link: "/shop",
   },
   {
     _id: 1003,
-    title: "About",
+    title: "ABOUT",
     link: "/about",
   },
   {
     _id: 1004,
-    title: "Contact",
-    link: "contact",
+    title: "JOURNAL",
+    link: "/journal",
   },
   {
     _id: 1005,
-    title: "Journal",
-    link: "/journal",
+    title: "CONTACT",
+    link: "contact",
   },
 ];
-// =================== NavBarList End here ======================
-// =================== Special Offer data Start here ============
-export const SplOfferData = [
+
+export const MenCollection = [
   {
     _id: "201",
-    img: spfOne,
+    img: "https://res.cloudinary.com/dhdrwpgox/image/upload/v1735210801/c9f3fe9c0b28b40afe2c255b9e45c3a7d5b55ae1ab4cdaec5914cb329f422110_sfv5em.jpg",
     productName: "Cap for Boys",
-    price: "35.00",
-    color: "Blank and White",
-    badge: true,
-    des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
+    oldPrice: "RS. 4200",
+    newPrice: "RS. 3500",
   },
   {
     _id: "202",
-    img: newArrFour,
+    img: "https://res.cloudinary.com/dhdrwpgox/image/upload/v1735210801/c9f3fe9c0b28b40afe2c255b9e45c3a7d5b55ae1ab4cdaec5914cb329f422110_sfv5em.jpg",
     productName: "Tea Table",
-    price: "180.00",
-    color: "Gray",
-    badge: true,
-    des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
+    oldPrice: "RS. 4200",
+    newPrice: "RS. 3500",
   },
   {
     _id: "203",
-    img: spfThree,
+    img: "https://res.cloudinary.com/dhdrwpgox/image/upload/v1735210801/c9f3fe9c0b28b40afe2c255b9e45c3a7d5b55ae1ab4cdaec5914cb329f422110_sfv5em.jpg",
     productName: "Headphones",
-    price: "25.00",
-    color: "Mixed",
-    badge: true,
-    des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
+    oldPrice: "RS. 4200",
+    newPrice: "RS. 3500",
   },
   {
     _id: "204",
-    img: spfFour,
+    img: "https://res.cloudinary.com/dhdrwpgox/image/upload/v1735210801/c9f3fe9c0b28b40afe2c255b9e45c3a7d5b55ae1ab4cdaec5914cb329f422110_sfv5em.jpg",
     productName: "Sun glasses",
-    price: "220.00",
-    color: "Black",
-    badge: true,
-    des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
+    oldPrice: "RS. 4200",
+    newPrice: "RS. 3500",
   },
+  {
+    _id: "205",
+    img: "https://res.cloudinary.com/dhdrwpgox/image/upload/v1735210801/c9f3fe9c0b28b40afe2c255b9e45c3a7d5b55ae1ab4cdaec5914cb329f422110_sfv5em.jpg",
+    productName: "Headphones",
+    oldPrice: "RS. 4200",
+    newPrice: "RS. 3500",  },
+  {
+    _id: "206",
+    img: "https://res.cloudinary.com/dhdrwpgox/image/upload/v1735210801/c9f3fe9c0b28b40afe2c255b9e45c3a7d5b55ae1ab4cdaec5914cb329f422110_sfv5em.jpg",
+    productName: "Sun glasses",
+    oldPrice: "RS. 4200",
+    newPrice: "RS. 3500",  },
+  {
+    _id: "207",
+    img: "https://res.cloudinary.com/dhdrwpgox/image/upload/v1735210801/c9f3fe9c0b28b40afe2c255b9e45c3a7d5b55ae1ab4cdaec5914cb329f422110_sfv5em.jpg",
+    productName: "Headphones",
+    oldPrice: "RS. 4200",
+    newPrice: "RS. 3500",  },
+  {
+    _id: "208",
+    img: "https://res.cloudinary.com/dhdrwpgox/image/upload/v1735210801/c9f3fe9c0b28b40afe2c255b9e45c3a7d5b55ae1ab4cdaec5914cb329f422110_sfv5em.jpg",
+    productName: "Sun glasses",
+    oldPrice: "RS. 4200",
+    newPrice: "RS. 3500",  },
 ];
+
 // =================== Special Offer data End here ==============
 
 // =================== PaginationItems Start here ===============

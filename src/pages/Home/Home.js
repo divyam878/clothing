@@ -1,24 +1,29 @@
 import React from "react";
-import Banner from "../../components/Banner/Banner";
-import BannerBottom from "../../components/Banner/BannerBottom";
-import BestSellers from "../../components/home/BestSellers/BestSellers";
-import NewArrivals from "../../components/home/NewArrivals/NewArrivals";
-import Sale from "../../components/home/Sale/Sale";
-import SpecialOffers from "../../components/home/SpecialOffers/SpecialOffers";
-import YearProduct from "../../components/home/YearProduct/YearProduct";
+import Banner from "../../components/home/Banner/Banner";
+import MenCollection from "../../components/home/Men'sCollection/Men'sCollection";
+import Grid from "../../components/home/Men'sCollection/Grid";
+import GenzHeader from "../../components/home/GenzCollection/Header";
+import GenzReelGrid from "../../components/home/GenzCollection/ReelGrid";
+import GenzGrid from "../../components/home/GenzCollection/Grid";
+import EssentialsHeader from "../../components/home/Men'sEssentials/Header";
+import EssentialsGrid from "../../components/home/Men'sEssentials/Grid";
+import Colors from "../../components/home/Colors/Colors";
+import Testimonials from "../../components/home/Testimonials/Testimonials";
+
 
 const Home = () => {
   return (
     <div className="w-full mx-auto">
-      <Banner />
-      <BannerBottom />
-      <div className="max-w-container mx-auto px-4">
-        <Sale />
-        <NewArrivals />
-        <BestSellers />
-        <YearProduct />
-        <SpecialOffers />
-      </div>
+      <Banner/>
+        <MenCollection />
+        <Grid />
+        <GenzHeader />
+        <GenzReelGrid />
+        <GenzGrid />
+        <EssentialsHeader />
+        <EssentialsGrid />
+        <Colors />
+        <Testimonials />
     </div>
   );
 };
