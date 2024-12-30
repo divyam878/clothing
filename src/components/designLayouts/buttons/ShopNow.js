@@ -3,7 +3,7 @@ import React from "react";
 const ShopNow = () => {
   return (
     <button className="bg-transparent border border-black text-lg font-oswald w-[185px] h-[50px] hover:bg-[#b7afa4] transition-all duration-300  relative group">
-      <div className="absolute -top-2 -left-2 w-[185px] h-[50px] group-hover:bg-black border-2 border-black transition-all duration-300 flex items-center justify-center text-black group-hover:text-white space-x-4">
+      <div className="absolute -top-2 -left-2 w-[185px] h-[50px] bg-black border-2 border-black transition-all duration-300 flex items-center justify-center  text-white space-x-4">
         <span>Show Now</span>
         <span className="text-[2rem]">
           <svg

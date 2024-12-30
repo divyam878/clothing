@@ -32,13 +32,13 @@ export const navBarList = [
   },
   {
     _id: 1004,
-    title: "JOURNAL",
-    link: "/journal",
+    title: "GALLERY",
+    link: "/gallery",
   },
   {
     _id: 1005,
     title: "CONTACT",
-    link: "contact",
+    link: "/contact",
   },
 ];
 

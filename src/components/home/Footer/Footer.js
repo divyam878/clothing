@@ -15,7 +15,7 @@ const Footer = () => {
           WHAT THE{" "}
           <span className="font-semibold block text-[1.2rem]">FASHION</span>
         </h3>
-        <div className="border-t border-l border-black flex items-start justify-between pt-4 pl-4 pr-20 pb-20 ml-4 mt-8">
+        <div className="border-t border-x border-black flex items-start justify-between pt-4 pl-4 pr-20 pb-20 ml-4 mt-8">
           <ul className="text-[0.8rem] space-y-2">
             <li className="text-[0.9rem] block pb-2">
               SHOP <span className="block">MEN'S WEAR</span>
@@ -49,13 +49,13 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className="w-[30%] bg-black h-max p-4">
-        <div className="w-8 h-8 bg-[#b7afa4] float-right"></div>
-        <div className="pt-24">
-          <h3 className="text-[#b7afa4] text-[1.1rem] font-semibold">
+      <div className="w-[30%] bg-[#b7afa4] h-max pt-4 pr-4">
+        <div className="w-8 h-8 bg-black float-right"></div>
+        <div className="mt-[5.3rem] py-4 border-t border-r border-black px-4 mr-2">
+          <h3 className="text-black text-[1.1rem] font-semibold">
             NEWSLETTER
           </h3>
-          <h3 className="text-[#b7afa4] text-[0.9rem] pt-2 w-[85%]">
+          <h3 className="text-black text-[0.9rem] pt-2 w-[85%]">
             Beyond the Outfit: Be the first to know about new arrivals, sales &
             exclusive events.
           </h3>
@@ -65,9 +65,9 @@ const Footer = () => {
               name="email"
               id="email"
               placeholder="Email"
-              class="px-4 h-10 w-full outline-none text-black"
+              class="px-4 h-10 w-full outline-none text-black border border-black placeholder-black"
             />
-            <div className="bg-[#b7afa4] w-12 h-10 flex items-center justify-center">
+            <div className="bg-[#b7afa4] w-12 h-10 flex items-center justify-center border-y border-r border-black">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="28"
@@ -85,7 +85,7 @@ const Footer = () => {
               </svg>
             </div>
           </div>
-          <h3 className="text-[#b7afa4] text-[1.1rem] font-semibold pt-10">
+          <h3 className="text-black text-[1.1rem] font-semibold pt-10">
             SOCIAL
           </h3>
           <div className="flex items-center space-x-2 my-2">
@@ -94,10 +94,10 @@ const Footer = () => {
             <FaInstagram className="bg-white w-6 h-6 rounded-full p-1" />
             <FaPinterestP className="bg-white w-6 h-6 rounded-full p-1" />
           </div>
-          <h3 className="text-[#b7afa4] text-[1.1rem] font-semibold pt-2">
+          <h3 className="text-black text-[1.1rem] font-semibold pt-2">
             CONTACT
           </h3>
-          <div className="flex items-center space-x-2 my-2">
+          <div className="flex items-center space-x-2 mt-2">
             <MdCall className="bg-white w-7 h-7 rounded-full p-1" />
             <MdEmail className="bg-white w-7 h-7 rounded-full p-1" />
             <IoLogoWhatsapp className="bg-white w-7 h-7 rounded-full p-1" />

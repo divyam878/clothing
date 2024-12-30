@@ -1,6 +1,7 @@
-import React from "react";
-import { MdCall } from "react-icons/md";
-import { MdEmail } from "react-icons/md";
+"use client";
+import React, { useState, useCallback, useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { MdCall, MdEmail } from "react-icons/md";
 
 const OurMission = () => {
   const Images = [
@@ -11,28 +12,66 @@ const OurMission = () => {
     "https://res.cloudinary.com/dhdrwpgox/image/upload/v1735379449/ABOUT_PAGE44_tymzxi.png",
   ];
 
-  const calculateHeight = (index) => {
-    const midIndex = Math.floor(Images.length / 2);
-    const distance = Math.abs(midIndex - index);
+  const [currentIndex, setCurrentIndex] = useState(2);
+  const imageRefs = useRef([]);
 
-    // Define height classes based on distance from the middle
-    if (distance === 0) return "h-[36rem]"; // Middle image
-    if (distance === 1) return "h-[20rem]"; // Adjacent images
-    if (distance === 2) return "h-[16rem]"; // Images two steps away
-    return "h-[12rem]"; // Images farther away
+  const handlePrevious = useCallback(() => {
+    setCurrentIndex((prev) => (prev === 0 ? Images.length - 1 : prev - 1));
+  }, []);
+
+  const handleNext = useCallback(() => {
+    setCurrentIndex((prev) => (prev === Images.length - 1 ? 0 : prev + 1));
+  }, []);
+
+  const getVisibleImages = () => {
+    const visibleIndices = [];
+    for (let i = -2; i <= 2; i++) {
+      visibleIndices.push((currentIndex + i + Images.length) % Images.length);
+    }
+    return visibleIndices;
   };
 
+  useEffect(() => {
+    const visibleImages = getVisibleImages();
+    visibleImages.forEach((index, position) => {
+      const imgElement = imageRefs.current[index];
+      gsap.fromTo(
+        imgElement,
+        { opacity: 0, scale: 0.8 },
+        {
+          opacity: 1,
+          scale: position === 2 ? 1 : 0.8,
+          duration: 0.05,
+          ease: "power3.out",
+        }
+      );
+    });
+  }, [currentIndex]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleNext();
+    }, 3000); // Change image every 3 seconds
+
+    return () => clearInterval(interval); // Clear interval on component unmount
+  }, [handleNext]);
+  
+
   return (
-    <div className="pb-10 h-full">
-      <div className="h-screen w-full overflow-x-scroll scrollbar-hide flex justify-center items-center relative">
-        <h2 className="text-[3.5rem] text-right text-[#b7afa4] font-semibold font-oswald absolute bottom-[29rem] left-[20%]">
-          OUR <span className="block">MISSION</span>{" "}
+    <div className="pb-10 pt-20 h-full bg-black">
+      <div className="w-full overflow-hidden flex justify-center items-center relative">
+        <h2 className="text-[3.5rem] text-right text-[#b7afa4] font-semibold font-oswald absolute bottom-[24.5rem] left-[21%] xl:left-[27%] z-20">
+          OUR <span className="block">MISSION</span>
         </h2>
-        <p className="text-white absolute bottom-[25rem] right-[19.5%]">
+        <p className="text-white absolute bottom-[23rem] right-[19.5%] xl:right-[26%] z-20">
           Delivering the perfect fit for{" "}
-          <span className="block">your perfect body.</span>{" "}
+          <span className="block">your perfect body.</span>
         </p>
-        <button className="w-12 h-12 bg-white rounded-full absolute right-4 flex items-center justify-center">
+        <button
+          className="w-12 h-12 bg-white rounded-full absolute right-4 flex items-center justify-center z-20"
+          onClick={handleNext}
+          aria-label="Next image"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="28"
@@ -49,7 +88,11 @@ const OurMission = () => {
             <polyline points="26 9 30 12 26 15"></polyline>
           </svg>
         </button>
-        <button className="w-12 h-12 bg-white rounded-full absolute left-4 flex items-center justify-center rotate-180">
+        <button
+          className="w-12 h-12 rotate-180 bg-white rounded-full absolute left-4 flex items-center justify-center z-20"
+          onClick={handlePrevious}
+          aria-label="Previous image"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="28"
@@ -66,21 +109,38 @@ const OurMission = () => {
             <polyline points="26 9 30 12 26 15"></polyline>
           </svg>
         </button>
-        <div className="w-max h-full flex space-x-4 items-end">
-          {Images.map((item, index) => (
-            <div key={index}>
-              <img
-                src={item}
-                alt="Banner"
-                className={`${calculateHeight(index)} w-auto`}
-              />
-            </div>
-          ))}
+        <div className="relative w-full h-full flex justify-center items-end">
+          <div className="flex items-end transition-transform duration-500 ease-in-out">
+            {getVisibleImages().map((index, position) => (
+              <div
+                key={index}
+                ref={(el) => (imageRefs.current[index] = el)}
+                className={`transition-transform duration-500 ease-in-out flex items-end ${
+                  position === 2 ? "scale-100" : "scale-80"
+                }`}
+                style={{
+                  transformOrigin: "bottom",
+                }}
+              >
+                <img
+                  src={Images[index]}
+                  alt={`Mission Image ${index + 1}`}
+                  width={300}
+                  height={500}
+                  className={`object-cover ${
+                    position === 2 ? "w-auto h-[34rem]" : "w-auto h-[20rem]"
+                  }`}
+                  style={{ margin: "0", padding: "6px" }} // Ensure no margin or padding
+                  priority
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-      <div className="flex items-center justify-between border border-white p-4 mx-40 font-oswald mt-20 mb-10">
+      <div className="flex items-center justify-between border border-white p-4 mx-40 mt-20 mb-10">
         <div>
-          <p className="text-white">Have Any Doubts?</p>
+          <p className="text-white font-oswald">Have Any Doubts?</p>
           <p className="text-white text-[0.8rem] block pt-4">
             Feel Free to <span className="block">Reachout</span>
           </p>
@@ -93,11 +153,11 @@ const OurMission = () => {
         <div className="flex flex-col space-y-6">
           <h3 className="flex space-x-4 text-white">
             <MdCall className="text-[1.5rem]" />
-            <span className="">+91 12345 67891</span>
+            <span className="font-oswald">+91 12345 67891</span>
           </h3>
           <p className="flex space-x-4 text-white">
             <MdEmail className="text-[1.5rem]" />
-            <span className="">company@gmail.com</span>
+            <span className="font-oswald">company@gmail.com</span>
           </p>
         </div>
       </div>

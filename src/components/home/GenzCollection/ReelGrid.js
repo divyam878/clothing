@@ -32,16 +32,10 @@ const ReelGrid = () => {
       </div>
       <div className="overflow-x-auto scrollbar-hide w-full h-full">
         <div className="w-max h-full p-4 flex items-center space-x-6">
-          {MenCollection.map(({ _id, img, productName, oldPrice, newPrice }) => (
-            <div key={_id} className="h-max w-[15rem] border border-black">
+          {MenCollection.map(({ _id, img }) => (
+            <div key={_id} className="h-max w-[15rem] overflow-hidden rounded-[0.8rem]">
               <img src={img} alt="Banner" className="h-full w-full" />
-              <div className="bg-white text-[0.8rem] py-1 px-4 border-t border-black">
-                <p>{productName}</p>
-                <div className="flex items-center space-x-2">
-                <p className="text-[#919191] line-through">{oldPrice}</p>
-                <p className="text-[#6b473b]">{newPrice}</p>
-                </div>
-              </div>
+              
             </div>
           ))}
         </div>
